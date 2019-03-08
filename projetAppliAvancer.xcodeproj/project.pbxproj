@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F200ED8E2232B417003C7899 /* meteo in Resources */ = {isa = PBXBuildFile; fileRef = F200ED8D2232B417003C7899 /* meteo */; };
+		F217B33922328F0700A5EB5E /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F217B33822328F0700A5EB5E /* WeatherData.swift */; };
 		F24828B222327BF6009EA90D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24828B122327BF6009EA90D /* AppDelegate.swift */; };
 		F24828B422327BF6009EA90D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24828B322327BF6009EA90D /* ViewController.swift */; };
 		F24828B722327BF6009EA90D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F24828B522327BF6009EA90D /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F200ED8D2232B417003C7899 /* meteo */ = {isa = PBXFileReference; lastKnownFileType = folder; name = meteo; path = ../../Downloads/meteo; sourceTree = "<group>"; };
+		F217B33822328F0700A5EB5E /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
 		F24828AE22327BF6009EA90D /* projetAppliAvancer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = projetAppliAvancer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F24828B122327BF6009EA90D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F24828B322327BF6009EA90D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +42,7 @@
 		F24828A522327BF6009EA90D = {
 			isa = PBXGroup;
 			children = (
+				F200ED8D2232B417003C7899 /* meteo */,
 				F24828B022327BF6009EA90D /* projetAppliAvancer */,
 				F24828AF22327BF6009EA90D /* Products */,
 			);
@@ -56,6 +61,7 @@
 			children = (
 				F24828B122327BF6009EA90D /* AppDelegate.swift */,
 				F24828B322327BF6009EA90D /* ViewController.swift */,
+				F217B33822328F0700A5EB5E /* WeatherData.swift */,
 				F24828B522327BF6009EA90D /* Main.storyboard */,
 				F24828B822327BF8009EA90D /* Assets.xcassets */,
 				F24828BA22327BF8009EA90D /* LaunchScreen.storyboard */,
@@ -125,6 +131,7 @@
 				F24828BC22327BF8009EA90D /* LaunchScreen.storyboard in Resources */,
 				F24828B922327BF8009EA90D /* Assets.xcassets in Resources */,
 				F24828B722327BF6009EA90D /* Main.storyboard in Resources */,
+				F200ED8E2232B417003C7899 /* meteo in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F24828B422327BF6009EA90D /* ViewController.swift in Sources */,
+				F217B33922328F0700A5EB5E /* WeatherData.swift in Sources */,
 				F24828B222327BF6009EA90D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
