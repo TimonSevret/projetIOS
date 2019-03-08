@@ -13,8 +13,7 @@ class CityTableViewController: UITableViewController {
     @IBOutlet weak var CityField: UITextField!
     //juste import la view pour le clavier du textfield ?
     
-    
-    var tableauCities = [City]()
+
     var tableaucity2 = [City]()
     
     // cell reuse id (cells that scroll out of view can be reused)
@@ -47,7 +46,7 @@ class CityTableViewController: UITableViewController {
         }
         
         for city in tableaucity2 {
-            print(city.titre)
+            print(city.name)
         }
         
         // Uncomment the following line to preserve selection between presentations
@@ -65,7 +64,7 @@ class CityTableViewController: UITableViewController {
         } catch {
             print("Echec lecture depuis le fichier : \(error)")
         }
-        let city=City(); city.titre=CityField.text!; city.valide=false; //a mettre en guard
+        let city=City(); city.name=CityField.text!; city.valide=false; //a mettre en guard
         tableaucity2.append(city)
         
         let encoder = PropertyListEncoder()
@@ -98,7 +97,7 @@ class CityTableViewController: UITableViewController {
      let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell!
      
      // set the text from the data model
-     cell.textLabel?.text = self.tableaucity2[indexPath.row].titre
+     cell.textLabel?.text = self.tableaucity2[indexPath.row].name
      
      return cell
         /*let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

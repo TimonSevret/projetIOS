@@ -9,8 +9,8 @@
 import Foundation
 
 class City: Encodable, Decodable {
-    var titre: String = ""
+    var name: String = ""
     var desc: String = ""
-    var valide: Bool = false
+    var favorite: Bool = false
 
 }
