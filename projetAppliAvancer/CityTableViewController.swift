@@ -64,7 +64,7 @@ class CityTableViewController: UITableViewController {
         } catch {
             print("Echec lecture depuis le fichier : \(error)")
         }
-        let city=City(); city.name=CityField.text!; city.valide=false; //a mettre en guard
+        let city=City(); city.name=CityField.text!; city.favorite=false; //a mettre en guard
         tableaucity2.append(city)
         
         let encoder = PropertyListEncoder()
