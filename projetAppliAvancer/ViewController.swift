@@ -8,15 +8,16 @@
 
 import UIKit
 import MapKit
+import CoreImage
 
 //gere la premiere vue, celle qui offre la meteo ect
 class ViewController: UIViewController {
     
     let appid = "2d9c0ddd9aea6414829c20fdf26def06"
-    var weather: WeatherData? = nil
 
     
     
+    @IBOutlet weak var favorite: UIBarButtonItem!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var villeLabel: UILabel!
     @IBOutlet weak var VitVentLabel: UILabel!
@@ -27,8 +28,20 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        var name = ""
+        if isfavorite(){
+            name = "favPlein.png"
+        }else{
+            name = "favVide.png"
+        }
         let loc = getPosition()
         getData(localisation:loc)
+        favorite.image = UIImage(named: name)
+    }
+    
+    func isfavorite() -> Bool{
+        //TODO
+        return true
     }
     
     func getPosition() -> CLLocationCoordinate2D{
@@ -44,24 +57,23 @@ class ViewController: UIViewController {
                 }
                 let weatherData = WeatherData.decode(data:data!)
                 DispatchQueue.main.async {
-                    self.weather = weatherData
-                    self.populate()
+                    self.populate(weather: weatherData!)
                 }
             }.resume()
         }
     }
 
-    func populate(){
+    func populate(weather: WeatherData){
         dateLabel.text = "\(Date())"
-        villeLabel.text = "\(weather?.name ?? "error")"
-        humiditeLabel.text = "Humidité \n \(weather?.main.humidity ?? -1)"
-        DirVentLabel.text = "Dir - Vent \n \(weather?.wind.deg ?? -1)"
-        VitVentLabel.text = "Vit - Vent \n \(weather?.wind.speed ?? -1)"
+        villeLabel.text = "\(weather.name ?? "error")"
+        humiditeLabel.text = "Humidité \n \(weather.main.humidity ?? -1)"
+        DirVentLabel.text = "Dir - Vent \n \(weather.wind.deg ?? -1)"
+        VitVentLabel.text = "Vit - Vent \n \(weather.wind.speed ?? -1)"
         let nf = NumberFormatter()
         nf.maximumFractionDigits = 1
-        let temperature: Double = (weather?.main.temp ?? -1) - 273.15
+        let temperature: Double = (weather.main.temp ?? -1) - 273.15
         TemperatureLabel.text = "\(nf.string(from: NSNumber(value: temperature))!) °C"
-        loadImage(id_temps: weather?.weather[0].id ?? -1)
+        loadImage(id_temps: weather.weather[0].id ?? -1)
         DispatchQueue.main.async {
             self.view.setNeedsLayout()
             self.view.setNeedsDisplay()
@@ -108,7 +120,7 @@ class ViewController: UIViewController {
         default :
             name = "chi_pas.png"
         }
-        name = "meteo/\(name)"
+        name = "\(name)"
         TempImage.image = UIImage(named: name)
     }
 
