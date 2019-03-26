@@ -13,8 +13,21 @@
 		F24828B722327BF6009EA90D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F24828B522327BF6009EA90D /* Main.storyboard */; };
 		F24828B922327BF8009EA90D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F24828B822327BF8009EA90D /* Assets.xcassets */; };
 		F24828BC22327BF8009EA90D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F24828BA22327BF8009EA90D /* LaunchScreen.storyboard */; };
+		F24A83612236949200D9B2C5 /* chi_pas.png in Resources */ = {isa = PBXBuildFile; fileRef = F24A83552236949200D9B2C5 /* chi_pas.png */; };
+		F24A83622236949200D9B2C5 /* cloudy2.png in Resources */ = {isa = PBXBuildFile; fileRef = F24A83562236949200D9B2C5 /* cloudy2.png */; };
+		F24A83632236949200D9B2C5 /* fog.png in Resources */ = {isa = PBXBuildFile; fileRef = F24A83572236949200D9B2C5 /* fog.png */; };
+		F24A83642236949200D9B2C5 /* light_rain.png in Resources */ = {isa = PBXBuildFile; fileRef = F24A83582236949200D9B2C5 /* light_rain.png */; };
+		F24A83652236949200D9B2C5 /* overcast.png in Resources */ = {isa = PBXBuildFile; fileRef = F24A83592236949200D9B2C5 /* overcast.png */; };
+		F24A83662236949200D9B2C5 /* shower3.png in Resources */ = {isa = PBXBuildFile; fileRef = F24A835A2236949200D9B2C5 /* shower3.png */; };
+		F24A83672236949200D9B2C5 /* snow4.png in Resources */ = {isa = PBXBuildFile; fileRef = F24A835B2236949200D9B2C5 /* snow4.png */; };
+		F24A83682236949200D9B2C5 /* snow5.png in Resources */ = {isa = PBXBuildFile; fileRef = F24A835C2236949200D9B2C5 /* snow5.png */; };
+		F24A83692236949200D9B2C5 /* sunny.png in Resources */ = {isa = PBXBuildFile; fileRef = F24A835D2236949200D9B2C5 /* sunny.png */; };
+		F24A836B2236949200D9B2C5 /* tstorm1.png in Resources */ = {isa = PBXBuildFile; fileRef = F24A835F2236949200D9B2C5 /* tstorm1.png */; };
+		F24A836C2236949200D9B2C5 /* tstorm3.png in Resources */ = {isa = PBXBuildFile; fileRef = F24A83602236949200D9B2C5 /* tstorm3.png */; };
 		F26CC5B622328D7800C32A30 /* CityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26CC5B522328D7800C32A30 /* CityTableViewController.swift */; };
 		F26CC5B82232902B00C32A30 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26CC5B72232902B00C32A30 /* City.swift */; };
+		F2DEF83E2244EC680004BFF6 /* favPlein.png in Resources */ = {isa = PBXBuildFile; fileRef = F2DEF83C2244EC680004BFF6 /* favPlein.png */; };
+		F2DEF83F2244EC680004BFF6 /* favVide.png in Resources */ = {isa = PBXBuildFile; fileRef = F2DEF83D2244EC680004BFF6 /* favVide.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,8 +39,21 @@
 		F24828B822327BF8009EA90D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F24828BB22327BF8009EA90D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F24828BD22327BF8009EA90D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F24A83552236949200D9B2C5 /* chi_pas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chi_pas.png; sourceTree = "<group>"; };
+		F24A83562236949200D9B2C5 /* cloudy2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloudy2.png; sourceTree = "<group>"; };
+		F24A83572236949200D9B2C5 /* fog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fog.png; sourceTree = "<group>"; };
+		F24A83582236949200D9B2C5 /* light_rain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = light_rain.png; sourceTree = "<group>"; };
+		F24A83592236949200D9B2C5 /* overcast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = overcast.png; sourceTree = "<group>"; };
+		F24A835A2236949200D9B2C5 /* shower3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shower3.png; sourceTree = "<group>"; };
+		F24A835B2236949200D9B2C5 /* snow4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snow4.png; sourceTree = "<group>"; };
+		F24A835C2236949200D9B2C5 /* snow5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = snow5.png; sourceTree = "<group>"; };
+		F24A835D2236949200D9B2C5 /* sunny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sunny.png; sourceTree = "<group>"; };
+		F24A835F2236949200D9B2C5 /* tstorm1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tstorm1.png; sourceTree = "<group>"; };
+		F24A83602236949200D9B2C5 /* tstorm3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tstorm3.png; sourceTree = "<group>"; };
 		F26CC5B522328D7800C32A30 /* CityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewController.swift; sourceTree = "<group>"; };
 		F26CC5B72232902B00C32A30 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		F2DEF83C2244EC680004BFF6 /* favPlein.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favPlein.png; sourceTree = "<group>"; };
+		F2DEF83D2244EC680004BFF6 /* favVide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favVide.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +70,7 @@
 		F24828A522327BF6009EA90D = {
 			isa = PBXGroup;
 			children = (
+				F24A83542236949200D9B2C5 /* meteo */,
 				F24828B022327BF6009EA90D /* projetAppliAvancer */,
 				F24828AF22327BF6009EA90D /* Products */,
 			);
@@ -71,6 +98,26 @@
 				F24828BD22327BF8009EA90D /* Info.plist */,
 			);
 			path = projetAppliAvancer;
+			sourceTree = "<group>";
+		};
+		F24A83542236949200D9B2C5 /* meteo */ = {
+			isa = PBXGroup;
+			children = (
+				F2DEF83C2244EC680004BFF6 /* favPlein.png */,
+				F2DEF83D2244EC680004BFF6 /* favVide.png */,
+				F24A83552236949200D9B2C5 /* chi_pas.png */,
+				F24A83562236949200D9B2C5 /* cloudy2.png */,
+				F24A83572236949200D9B2C5 /* fog.png */,
+				F24A83582236949200D9B2C5 /* light_rain.png */,
+				F24A83592236949200D9B2C5 /* overcast.png */,
+				F24A835A2236949200D9B2C5 /* shower3.png */,
+				F24A835B2236949200D9B2C5 /* snow4.png */,
+				F24A835C2236949200D9B2C5 /* snow5.png */,
+				F24A835D2236949200D9B2C5 /* sunny.png */,
+				F24A835F2236949200D9B2C5 /* tstorm1.png */,
+				F24A83602236949200D9B2C5 /* tstorm3.png */,
+			);
+			path = meteo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,8 +178,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F24A83632236949200D9B2C5 /* fog.png in Resources */,
+				F24A83692236949200D9B2C5 /* sunny.png in Resources */,
+				F24A83682236949200D9B2C5 /* snow5.png in Resources */,
+				F2DEF83F2244EC680004BFF6 /* favVide.png in Resources */,
 				F24828BC22327BF8009EA90D /* LaunchScreen.storyboard in Resources */,
+				F2DEF83E2244EC680004BFF6 /* favPlein.png in Resources */,
+				F24A83612236949200D9B2C5 /* chi_pas.png in Resources */,
 				F24828B922327BF8009EA90D /* Assets.xcassets in Resources */,
+				F24A83642236949200D9B2C5 /* light_rain.png in Resources */,
+				F24A836B2236949200D9B2C5 /* tstorm1.png in Resources */,
+				F24A836C2236949200D9B2C5 /* tstorm3.png in Resources */,
+				F24A83672236949200D9B2C5 /* snow4.png in Resources */,
+				F24A83662236949200D9B2C5 /* shower3.png in Resources */,
+				F24A83622236949200D9B2C5 /* cloudy2.png in Resources */,
+				F24A83652236949200D9B2C5 /* overcast.png in Resources */,
 				F24828B722327BF6009EA90D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
