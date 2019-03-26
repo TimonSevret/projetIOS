@@ -90,6 +90,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mDP-MF-BoA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="09G-aH-qA9">
+                                        <rect key="frame" x="0.0" y="12" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <items>
+                                            <barButtonItem title="Item" id="Evr-Ca-w38">
+                                                <color key="tintColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="addFavorite:" destination="BYZ-38-t0r" id="ad6-Ng-2o5"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem style="plain" systemItem="flexibleSpace" id="kel-bZ-kVD"/>
+                                            <barButtonItem title="City" id="rag-BJ-43u">
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <segue destination="mXF-qU-hJy" kind="presentation" id="L5p-sR-fAw"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </items>
+                                    </toolbar>
+                                </subviews>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.63627964609999998" green="0.91199192480000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -106,16 +131,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="scZ-0B-9CZ">
-                        <barButtonItem key="rightBarButtonItem" title="city" id="3AG-Qn-WON"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="scZ-0B-9CZ"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="DirVentLabel" destination="Jlk-AQ-fq9" id="gn1-xV-uZH"/>
                         <outlet property="TempImage" destination="Vwb-Q4-Ezp" id="pxx-y2-3yx"/>
-                        <outlet property="TemperatureLabel" destination="Jcz-R9-O9j" id="UES-Vy-eh5"/>
+                        <outlet property="TemperatureLabel" destination="Jcz-R9-O9j" id="fSB-VS-liX"/>
                         <outlet property="VitVentLabel" destination="Knz-2d-C66" id="9ND-22-AM7"/>
                         <outlet property="dateLabel" destination="CgY-nU-jxF" id="B6n-zf-aHO"/>
+                        <outlet property="favorite" destination="Evr-Ca-w38" id="x4Q-KK-MnB"/>
                         <outlet property="humiditeLabel" destination="P65-aZ-EeN" id="yun-wu-6Dk"/>
                         <outlet property="villeLabel" destination="iHJ-xk-73G" id="tQ9-zZ-Th1"/>
                     </connections>

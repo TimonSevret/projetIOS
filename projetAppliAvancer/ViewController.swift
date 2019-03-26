@@ -10,14 +10,13 @@ import UIKit
 import MapKit
 
 //gere la premiere vue, celle qui offre la meteo ect
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
     
     let appid = "2d9c0ddd9aea6414829c20fdf26def06"
-    var loc:CLLocationCoordinate2D?
+    var selectedCity :String?
     
 
-    
-    
+
     @IBOutlet weak var favorite: UIBarButtonItem!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var villeLabel: UILabel!
@@ -26,44 +25,54 @@ class ViewController: UIViewController {
     @IBOutlet weak var humiditeLabel: UILabel!
     @IBOutlet weak var TemperatureLabel: UILabel!
     @IBOutlet weak var TempImage: UIImageView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        var name = ""
-        if isfavorite(){
-            name = "favPlein.png"
+        if let city = selectedCity{
+            favorite.image = UIImage(named: "favVide.png")
+            getPosition(ville: city)
         }else{
-            name = "favVide.png"
+            let userDefaults = UserDefaults.standard
+            let cityName = userDefaults.string(forKey: "favorite")
+            if let city = cityName {
+                favorite.image = UIImage(named: "favPlein.png")
+                getPosition(ville: city)
+            }else{
+                favorite.image = UIImage(named: "favVide.png")
+                getPosition()
+            }
         }
-        getPosition()
-        //favorite.image = UIImage(named: name)
     }
     
-    func isfavorite() -> Bool{
-        //TODO
-        return true
-    }
-    
-    func getPosition(){
-        let manager = CLLocationManager()
-        loc = manager.location?.coordinate
-        getData()
-    }
-    
-    func getPosition(ville: String){
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(ville){
-            (placeMarkers,error) in
-            if error == nil{
-                self.loc = placeMarkers![1].location?.coordinate
+        if let loc = manager.location{
+            geocoder.reverseGeocodeLocation(loc){
+                (placeMark,error) in
+                self.selectedCity = placeMark![0].name
                 self.getData()
             }
         }
     }
     
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+    
+    func getPosition(){
+        let manager = CLLocationManager()
+        manager.delegate = self
+        manager.requestLocation()
+    }
+    
+    func getPosition(ville: String){
+        selectedCity = ville
+        getData()
+    }
+    
     func getData(){
-        if let loccation = loc {
-            if let url = URL(string:"https://api.openweathermap.org/data/2.5/weather?lat=\(loccation.latitude)&lon=\(loccation.longitude)&appid=\(appid)"){
+        if let city = selectedCity {
+            if let url = URL(string:"https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=\(appid)"){
                 URLSession.shared.dataTask(with: url){(data,response, error) in
                     if error != nil {
                         print(error!.localizedDescription)
@@ -138,4 +147,23 @@ class ViewController: UIViewController {
         TempImage.image = UIImage(named: name)
     }
 
+    func isFavorite(userDefaults: UserDefaults) -> Bool{
+        let fav = userDefaults.string(forKey: "favorite")
+        return selectedCity == fav
+    }
+    
+    @IBAction func addFavorite(_ sender: Any) {
+        let userDefaults = UserDefaults.standard
+        if isFavorite(userDefaults: userDefaults) {
+            userDefaults.removeObject(forKey: "favorite")
+            favorite.image = UIImage(named: "favVide.png")
+        }else{
+            userDefaults.set(selectedCity,forKey: "favorite")
+            favorite.image = UIImage(named: "favPlein.png")
+        }
+        DispatchQueue.main.async {
+            self.view.setNeedsLayout()
+            self.view.setNeedsDisplay()
+        }
+    }
 }
