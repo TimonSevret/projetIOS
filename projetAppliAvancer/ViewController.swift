@@ -36,7 +36,7 @@ class ViewController: UIViewController {
             name = "favVide.png"
         }
         getPosition()
-        favorite.image = UIImage(named: name)
+        //favorite.image = UIImage(named: name)
     }
     
     func isfavorite() -> Bool{
