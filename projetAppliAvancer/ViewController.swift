@@ -62,7 +62,7 @@ class ViewController: UIViewController {
     }
     
     func getData(){
-        if let loccation = loc{
+        if let loccation = loc {
             if let url = URL(string:"https://api.openweathermap.org/data/2.5/weather?lat=\(loccation.latitude)&lon=\(loccation.longitude)&appid=\(appid)"){
                 URLSession.shared.dataTask(with: url){(data,response, error) in
                     if error != nil {
