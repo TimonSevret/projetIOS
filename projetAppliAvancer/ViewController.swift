@@ -8,12 +8,13 @@
 
 import UIKit
 import MapKit
-import CoreImage
 
 //gere la premiere vue, celle qui offre la meteo ect
 class ViewController: UIViewController {
     
     let appid = "2d9c0ddd9aea6414829c20fdf26def06"
+    var loc:CLLocationCoordinate2D?
+    
 
     
     
@@ -34,8 +35,7 @@ class ViewController: UIViewController {
         }else{
             name = "favVide.png"
         }
-        let loc = getPosition()
-        getData(localisation:loc)
+        getPosition()
         favorite.image = UIImage(named: name)
     }
     
@@ -44,22 +44,36 @@ class ViewController: UIViewController {
         return true
     }
     
-    func getPosition() -> CLLocationCoordinate2D{
-        //TODO
-        return CLLocationCoordinate2D(latitude: 47.902964,longitude: 1.909251)
+    func getPosition(){
+        let manager = CLLocationManager()
+        loc = manager.location?.coordinate
+        getData()
     }
     
-    func getData(localisation :CLLocationCoordinate2D){
-        if let url = URL(string:"https://api.openweathermap.org/data/2.5/weather?lat=\(localisation.latitude)&lon=\(localisation.longitude)&appid=\(appid)"){
-            URLSession.shared.dataTask(with: url){(data,response, error) in
-                if error != nil {
-                    print(error!.localizedDescription)
-                }
-                let weatherData = WeatherData.decode(data:data!)
-                DispatchQueue.main.async {
-                    self.populate(weather: weatherData!)
-                }
-            }.resume()
+    func getPosition(ville: String){
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(ville){
+            (placeMarkers,error) in
+            if error == nil{
+                self.loc = placeMarkers![1].location?.coordinate
+                self.getData()
+            }
+        }
+    }
+    
+    func getData(){
+        if let loccation = loc{
+            if let url = URL(string:"https://api.openweathermap.org/data/2.5/weather?lat=\(loccation.latitude)&lon=\(loccation.longitude)&appid=\(appid)"){
+                URLSession.shared.dataTask(with: url){(data,response, error) in
+                    if error != nil {
+                        print(error!.localizedDescription)
+                    }
+                    let weatherData = WeatherData.decode(data:data!)
+                    DispatchQueue.main.async {
+                        self.populate(weather: weatherData!)
+                    }
+                    }.resume()
+            }
         }
     }
 
