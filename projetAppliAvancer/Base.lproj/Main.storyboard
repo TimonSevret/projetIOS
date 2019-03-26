@@ -155,13 +155,26 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="un6-8s-Zif">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityTableViewCell" id="un6-8s-Zif" customClass="CityTableViewCell" customModule="projetAppliAvancer" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="108" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="un6-8s-Zif" id="csH-jF-t34">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RcU-Iq-YqI">
+                                            <rect key="frame" x="355" y="3" width="40" height="37"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button" image="camera.png"/>
+                                            <connections>
+                                                <action selector="viewcity:" destination="mXF-qU-hJy" eventType="touchUpInside" id="XfM-ZI-2JM"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cameraButton" destination="RcU-Iq-YqI" id="aYE-WO-nE0"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -171,27 +184,46 @@
                     </tableView>
                     <connections>
                         <outlet property="CityField" destination="DCZ-yU-XpW" id="zFE-8k-933"/>
-                        <outlet property="view" destination="zEt-zx-jED" id="YXP-ST-A1R"/>
+                        <segue destination="bzr-xA-RUC" kind="presentation" identifier="segue2" id="LSP-e2-xEQ"/>
+                        <segue destination="bzr-xA-RUC" kind="presentation" identifier="segue3" id="luO-4u-6hh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maN-ma-sg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1232.8" y="-169.56521739130437"/>
         </scene>
-        <!--View Controller-->
+        <!--City View Controller-->
         <scene sceneID="tNF-bP-UdX">
             <objects>
-                <viewController id="bzr-xA-RUC" sceneMemberID="viewController">
+                <viewController id="bzr-xA-RUC" customClass="CityViewController" customModule="projetAppliAvancer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vgO-xw-Mr0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snm-GO-s1Z">
+                                <rect key="frame" x="78" y="164" width="75" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="rqG-tP-KBa"/>
                     </view>
+                    <connections>
+                        <outlet property="test" destination="snm-GO-s1Z" id="yBq-LB-Miu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dlc-2o-7XK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2055" y="-170"/>
+            <point key="canvasLocation" x="2053.5999999999999" y="-170.46476761619192"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera.png" width="512" height="512"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="luO-4u-6hh"/>
+    </inferredMetricsTieBreakers>
 </document>

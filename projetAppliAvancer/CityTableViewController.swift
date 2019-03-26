@@ -17,15 +17,15 @@ class CityTableViewController: UITableViewController {
     var tableaucity2 = [City]()
     
     // cell reuse id (cells that scroll out of view can be reused)
-    let cellReuseIdentifier = "cell"
+    let cellReuseIdentifier = "CityTableViewCell"
     
     let fichier = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Cities.plist")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Register the table view cell class and its reuse id
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
+        // Register the table view cell class and its reuse id  >> WHY, j'arrive pas à la retune ?
+        //self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         
         // (optional) include this line if you want to remove the extra empty cell divider lines
         // self.tableView.tableFooterView = UIView()
@@ -33,6 +33,12 @@ class CityTableViewController: UITableViewController {
         // This view controller itself will provide the delegate methods and row data for the table view.
         tableView.delegate = self
         tableView.dataSource = self
+        
+        let backgroundimage = UIImage(named: "screen-2.jpg")
+        let imageview = UIImageView(image: backgroundimage)
+        //imageview.contentMode = .scaleAspectFit selon image ?
+        self.tableView.backgroundView = imageview
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
         
         print(fichier) //in fine faire une classe spéciale pour les opérations de stockage
  
@@ -55,6 +61,7 @@ class CityTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationcity.rightBarButtoncity = self.editButtoncity
     }
+    
 
     @IBAction func AddButton(_ sender: UIButton) {
         do {
@@ -64,14 +71,17 @@ class CityTableViewController: UITableViewController {
         } catch {
             print("Echec lecture depuis le fichier : \(error)")
         }
-        let city=City(); city.name=CityField.text!; city.favorite=false; //a mettre en guard
-        tableaucity2.append(city)
+        let city=City();
+        if(!CityField.text!.isEmpty){
+            city.name=CityField.text!; }
+        city.favorite=false; //a mettre en guard
+        tableaucity2.append(city) //do catch?
+        CityField.text = "";
         
         let encoder = PropertyListEncoder()
         do {
             let data = try encoder.encode(tableaucity2)
             try data.write(to: fichier!)
-            print("ok")
         } catch {
             print("Echec écriture dans le fichier : \(error)")
         }
@@ -93,21 +103,24 @@ class CityTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+     //let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
      // create a new cell if needed or reuse an old one
-     let cell:UITableViewCell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as UITableViewCell!
-     
-     // set the text from the data model
-     cell.textLabel?.text = self.tableaucity2[indexPath.row].name
-     
-     return cell
-        /*let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        guard let cell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier) as? CityTableViewCell else { fatalError("Wrong dequeued cell instance") }
 
-        // Configure the cell...
+         // set the text from the data model
+         cell.textLabel?.text = self.tableaucity2[indexPath.row].name
+        
+         cell.cameraButton.setTitle(self.tableaucity2[indexPath.row].name, for: .normal)
 
-        return cell*/
+         return cell
     }
- 
-
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //cell.backgroundColor = .clear transparent
+        cell.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -115,7 +128,6 @@ class CityTableViewController: UITableViewController {
         return true
     }
     */
-
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -123,7 +135,7 @@ class CityTableViewController: UITableViewController {
             tableaucity2.remove(at:indexPath.row)
             let encoder = PropertyListEncoder()
             do {
-                let data = try encoder.encode(tableaucity2)
+                let data = try encoder.encode(tableaucity2)  //a voir si y a moins bourrin
                 try data.write(to: fichier!)
             } catch {
                 print("Echec écriture dans le fichier : \(error)")
@@ -132,7 +144,33 @@ class CityTableViewController: UITableViewController {
         }
     }
     
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "segue3", sender: self)
+    }
+    
+    @IBAction func viewcity(_ sender: UIButton) {  //camerabutton
+        performSegue(withIdentifier: "segue2", sender: sender)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if(segue.identifier == "segue2"){
+            // Get the new view controller using segue.destination.
+            let destVC : CityViewController = segue.destination as! CityViewController
+        
+            // Pass the selected object to the new view controller.
+            let camera = sender as! UIButton
+                //nom de la ville correspondante
+            destVC.selectedCity = camera.title(for: .normal)!
+        }
+        if(segue.identifier == "segue3"){                                               //mettre la bonne segue
+            let destVC : CityViewController = segue.destination as! CityViewController  //mettre le bon nom
+            let indexPath = tableView.indexPathForSelectedRow
+            destVC.selectedCity = self.tableaucity2[indexPath!.row].name                //mettre le bon nom de l'attribut
+        }
+    }
+    
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
