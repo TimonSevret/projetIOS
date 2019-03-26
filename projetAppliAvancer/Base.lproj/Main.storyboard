@@ -210,6 +210,7 @@
                         <outlet property="CityField" destination="DCZ-yU-XpW" id="zFE-8k-933"/>
                         <segue destination="bzr-xA-RUC" kind="presentation" identifier="segue2" id="LSP-e2-xEQ"/>
                         <segue destination="bzr-xA-RUC" kind="presentation" identifier="segue3" id="luO-4u-6hh"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="toMeteo" id="K6u-UQ-x6w"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maN-ma-sg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -249,5 +250,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="luO-4u-6hh"/>
+        <segue reference="K6u-UQ-x6w"/>
     </inferredMetricsTieBreakers>
 </document>

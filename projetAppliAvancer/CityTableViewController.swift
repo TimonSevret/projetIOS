@@ -146,7 +146,7 @@ class CityTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "segue3", sender: self)
+        performSegue(withIdentifier: "toMeteo", sender: self)
     }
     
     @IBAction func viewcity(_ sender: UIButton) {  //camerabutton
@@ -164,8 +164,8 @@ class CityTableViewController: UITableViewController {
                 //nom de la ville correspondante
             destVC.selectedCity = camera.title(for: .normal)!
         }
-        if(segue.identifier == "segue3"){                                               //mettre la bonne segue
-            let destVC : CityViewController = segue.destination as! CityViewController  //mettre le bon nom
+        if(segue.identifier == "toMeteo"){                                               //mettre la bonne segue
+            let destVC : ViewController = segue.destination as! ViewController  //mettre le bon nom
             let indexPath = tableView.indexPathForSelectedRow
             destVC.selectedCity = self.tableaucity2[indexPath!.row].name                //mettre le bon nom de l'attribut
         }
