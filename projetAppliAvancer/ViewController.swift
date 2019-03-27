@@ -19,6 +19,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
 
 
+    @IBOutlet var globalView: UIView!
     @IBOutlet weak var favorite: UIBarButtonItem!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var villeLabel: UILabel!
@@ -30,6 +31,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let backgroundView = UIImageView(frame: UIScreen.main.bounds)
+        backgroundView.image = UIImage(named: "backgroundMain.jpg")
+        backgroundView.contentMode = UIView.ContentMode.scaleAspectFill
+        self.view.insertSubview(backgroundView, at: 0)
         let userDefaults = UserDefaults.standard
         if let city = selectedCity{
             if isFavorite(userDefaults: userDefaults) {
@@ -109,7 +114,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let nf = NumberFormatter()
         nf.maximumFractionDigits = 1
         let temperature: Double = (weather.main.temp ?? -1) - 273.15
-        TemperatureLabel.text = "\(nf.string(from: NSNumber(value: temperature))!) °C"
+        let temperatureMin: Double = (weather.main.temp_min ?? -1) - 273.15
+        let temperatureMax: Double = (weather.main.temp_max ?? -1) - 273.15
+        TemperatureLabel.text = "\(nf.string(from: NSNumber(value: temperature))!) °C \n \(nf.string(from: NSNumber(value: temperatureMin))!) / \(nf.string(from: NSNumber(value: temperatureMax))!) °C"
         loadImage(id_temps: weather.weather[0].id ?? -1)
         DispatchQueue.main.async {
             self.view.setNeedsLayout()

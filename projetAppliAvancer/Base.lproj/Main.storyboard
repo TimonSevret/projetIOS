@@ -69,12 +69,6 @@
                                     <constraint firstItem="Knz-2d-C66" firstAttribute="leading" secondItem="Jlk-AQ-fq9" secondAttribute="trailing" constant="47" id="uzT-Xv-RcE"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jcz-R9-O9j">
-                                <rect key="frame" x="325" y="557" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vwb-Q4-Ezp">
                                 <rect key="frame" x="57" y="176" width="260" height="266"/>
                             </imageView>
@@ -91,7 +85,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mDP-MF-BoA">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <subviews>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="09G-aH-qA9">
                                         <rect key="frame" x="0.0" y="12" width="375" height="44"/>
@@ -117,6 +111,12 @@
                                     <constraint firstItem="09G-aH-qA9" firstAttribute="width" secondItem="mDP-MF-BoA" secondAttribute="width" id="aji-fv-8J4"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jcz-R9-O9j">
+                                <rect key="frame" x="324" y="536" width="42" height="49"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.63627964609999998" green="0.91199192480000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -124,13 +124,14 @@
                             <constraint firstItem="CgY-nU-jxF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="5Ee-dv-dTK"/>
                             <constraint firstItem="iHJ-xk-73G" firstAttribute="top" secondItem="CgY-nU-jxF" secondAttribute="bottom" constant="20" id="5aM-0b-svF"/>
                             <constraint firstItem="iHJ-xk-73G" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="7HA-MH-6rc"/>
-                            <constraint firstItem="5pj-5x-akS" firstAttribute="top" secondItem="Jcz-R9-O9j" secondAttribute="bottom" constant="38" id="Jf4-bj-6rn"/>
+                            <constraint firstItem="5pj-5x-akS" firstAttribute="top" secondItem="Jcz-R9-O9j" secondAttribute="bottom" constant="20" id="Jf4-bj-6rn"/>
                             <constraint firstItem="Vwb-Q4-Ezp" firstAttribute="top" secondItem="iHJ-xk-73G" secondAttribute="bottom" constant="37" id="X3q-tn-e1m"/>
                             <constraint firstItem="5pj-5x-akS" firstAttribute="top" secondItem="Vwb-Q4-Ezp" secondAttribute="bottom" constant="174" id="anQ-Xd-s2F"/>
+                            <constraint firstItem="09G-aH-qA9" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="b3A-4n-VuU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="mDP-MF-BoA" secondAttribute="top" id="e8N-ce-hjd"/>
                             <constraint firstItem="Vwb-Q4-Ezp" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="g4W-4Z-EhR"/>
-                            <constraint firstItem="Jcz-R9-O9j" firstAttribute="leading" secondItem="Vwb-Q4-Ezp" secondAttribute="trailing" constant="8" id="gG5-F2-82d"/>
+                            <constraint firstItem="Jcz-R9-O9j" firstAttribute="leading" secondItem="Vwb-Q4-Ezp" secondAttribute="trailing" constant="-10" id="gG5-F2-82d"/>
                             <constraint firstItem="Vwb-Q4-Ezp" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hTV-mQ-9FM"/>
-                            <constraint firstItem="CgY-nU-jxF" firstAttribute="top" secondItem="mDP-MF-BoA" secondAttribute="bottom" constant="8" id="vbj-RA-Oj1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -143,6 +144,7 @@
                         <outlet property="VitVentLabel" destination="Knz-2d-C66" id="9ND-22-AM7"/>
                         <outlet property="dateLabel" destination="CgY-nU-jxF" id="B6n-zf-aHO"/>
                         <outlet property="favorite" destination="Evr-Ca-w38" id="x4Q-KK-MnB"/>
+                        <outlet property="globalView" destination="8bC-Xf-vdC" id="7Wc-oL-li6"/>
                         <outlet property="humiditeLabel" destination="P65-aZ-EeN" id="yun-wu-6Dk"/>
                         <outlet property="villeLabel" destination="iHJ-xk-73G" id="tQ9-zZ-Th1"/>
                     </connections>

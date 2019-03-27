@@ -18,6 +18,7 @@
 		F26CC5B82232902B00C32A30 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26CC5B72232902B00C32A30 /* City.swift */; };
 		F2D365F62236ACA50015BC20 /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D365F52236ACA50015BC20 /* CityViewController.swift */; };
 		F2DDAAB12244E2DE00933E75 /* rond.png in Resources */ = {isa = PBXBuildFile; fileRef = F2DDAAB02244E2DE00933E75 /* rond.png */; };
+		F2DDB090224BEE2200D7DDB0 /* backgroundMain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F2DDB08F224BEE2200D7DDB0 /* backgroundMain.jpg */; };
 		F2DDE322224A84CF004D4E3B /* favPlein.png in Resources */ = {isa = PBXBuildFile; fileRef = F2DDE320224A84CF004D4E3B /* favPlein.png */; };
 		F2DDE323224A84CF004D4E3B /* favVide.png in Resources */ = {isa = PBXBuildFile; fileRef = F2DDE321224A84CF004D4E3B /* favVide.png */; };
 		F2DDE326224A877F004D4E3B /* tstorm1.png in Resources */ = {isa = PBXBuildFile; fileRef = F2DDE324224A877F004D4E3B /* tstorm1.png */; };
@@ -49,6 +50,7 @@
 		F26CC5B72232902B00C32A30 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		F2D365F52236ACA50015BC20 /* CityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
 		F2DDAAB02244E2DE00933E75 /* rond.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rond.png; sourceTree = "<group>"; };
+		F2DDB08F224BEE2200D7DDB0 /* backgroundMain.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = backgroundMain.jpg; sourceTree = "<group>"; };
 		F2DDE320224A84CF004D4E3B /* favPlein.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favPlein.png; sourceTree = "<group>"; };
 		F2DDE321224A84CF004D4E3B /* favVide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favVide.png; sourceTree = "<group>"; };
 		F2DDE324224A877F004D4E3B /* tstorm1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tstorm1.png; path = ../../../Downloads/meteo/tstorm1.png; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				F2DDE32E224A8787004D4E3B /* shower3.png */,
 				F2DDE32F224A8788004D4E3B /* snow4.png */,
 				F2DDE330224A8788004D4E3B /* snow5.png */,
+				F2DDB08F224BEE2200D7DDB0 /* backgroundMain.jpg */,
 				F2DDE329224A8787004D4E3B /* sunny.png */,
 				F2DDE325224A877F004D4E3B /* tstorm3.png */,
 				F2DDE321224A84CF004D4E3B /* favVide.png */,
@@ -211,6 +214,7 @@
 				F2DDAAB12244E2DE00933E75 /* rond.png in Resources */,
 				F2DDE333224A8788004D4E3B /* light_rain.png in Resources */,
 				F2DDE331224A8788004D4E3B /* overcast.png in Resources */,
+				F2DDB090224BEE2200D7DDB0 /* backgroundMain.jpg in Resources */,
 				F24828B722327BF6009EA90D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
