@@ -147,6 +147,12 @@ class CityTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "toMeteo", sender: self)
+        /*let StoryBoard = UIStoryboard(name: "Main", bundle: nil)
+        let VC = StoryBoard.instantiateViewController(withIdentifier: "meteoView") as! ViewController
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        VC.selectedCity = self.tableaucity2[indexPath.row].name
+        self.navigationController?.pushViewController(VC, animated: true)*/
     }
     
     @IBAction func viewcity(_ sender: UIButton) {  //camerabutton

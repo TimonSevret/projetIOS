@@ -8,12 +8,14 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 //gere la premiere vue, celle qui offre la meteo ect
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
     let appid = "2d9c0ddd9aea6414829c20fdf26def06"
     var selectedCity :String?
+    let manager = CLLocationManager()
     
 
 
@@ -28,11 +30,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let userDefaults = UserDefaults.standard
         if let city = selectedCity{
-            favorite.image = UIImage(named: "favVide.png")
+            if isFavorite(userDefaults: userDefaults) {
+                favorite.image = UIImage(named: "favPlein.png")
+            }else{
+                favorite.image = UIImage(named: "favVide.png")
+            }
             getPosition(ville: city)
         }else{
-            let userDefaults = UserDefaults.standard
             let cityName = userDefaults.string(forKey: "favorite")
             if let city = cityName {
                 favorite.image = UIImage(named: "favPlein.png")
@@ -46,27 +52,35 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let geocoder = CLGeocoder()
-        if let loc = manager.location{
+        if let loc = locations.last{
             geocoder.reverseGeocodeLocation(loc){
                 (placeMark,error) in
-                self.selectedCity = placeMark![0].name
+                self.selectedCity = placeMark![0].locality
                 self.getData()
             }
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
+        print("err: \(error)")
     }
     
     func getPosition(){
-        let manager = CLLocationManager()
+        manager.requestWhenInUseAuthorization()
+        let authorisation = CLLocationManager.authorizationStatus()
+        if authorisation != .authorizedWhenInUse && authorisation != .authorizedAlways{
+            print("unAuthorized")
+            return
+        }
+        manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        manager.distanceFilter = 100
         manager.delegate = self
+        
         manager.requestLocation()
     }
     
     func getPosition(ville: String){
-        selectedCity = ville
+        selectedCity = ville.lowercased().folding(options: .diacriticInsensitive, locale: .current)
         getData()
     }
     
@@ -149,7 +163,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
     func isFavorite(userDefaults: UserDefaults) -> Bool{
         let fav = userDefaults.string(forKey: "favorite")
-        return selectedCity == fav
+        return selectedCity?.lowercased().folding(options: .diacriticInsensitive, locale: .current) == fav
     }
     
     @IBAction func addFavorite(_ sender: Any) {

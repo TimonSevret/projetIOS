@@ -29,7 +29,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="projetAppliAvancer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="meteoView" id="BYZ-38-t0r" customClass="ViewController" customModule="projetAppliAvancer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,13 +90,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mDP-MF-BoA">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mDP-MF-BoA">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="09G-aH-qA9">
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="09G-aH-qA9">
                                         <rect key="frame" x="0.0" y="12" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <items>
                                             <barButtonItem title="Item" id="Evr-Ca-w38">
                                                 <color key="tintColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -105,8 +103,8 @@
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="kel-bZ-kVD"/>
-                                            <barButtonItem title="City" id="rag-BJ-43u">
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <barButtonItem title="Ville" style="plain" id="rag-BJ-43u">
+                                                <color key="tintColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
                                                     <segue destination="mXF-qU-hJy" kind="presentation" id="L5p-sR-fAw"/>
                                                 </connections>
@@ -114,6 +112,10 @@
                                         </items>
                                     </toolbar>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="09G-aH-qA9" firstAttribute="height" secondItem="mDP-MF-BoA" secondAttribute="height" id="Z47-Uv-x6G"/>
+                                    <constraint firstItem="09G-aH-qA9" firstAttribute="width" secondItem="mDP-MF-BoA" secondAttribute="width" id="aji-fv-8J4"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.63627964609999998" green="0.91199192480000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -128,6 +130,7 @@
                             <constraint firstItem="Vwb-Q4-Ezp" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="g4W-4Z-EhR"/>
                             <constraint firstItem="Jcz-R9-O9j" firstAttribute="leading" secondItem="Vwb-Q4-Ezp" secondAttribute="trailing" constant="8" id="gG5-F2-82d"/>
                             <constraint firstItem="Vwb-Q4-Ezp" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hTV-mQ-9FM"/>
+                            <constraint firstItem="CgY-nU-jxF" firstAttribute="top" secondItem="mDP-MF-BoA" secondAttribute="bottom" constant="8" id="vbj-RA-Oj1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -187,7 +190,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RcU-Iq-YqI">
-                                            <rect key="frame" x="355" y="3" width="40" height="37"/>
+                                            <rect key="frame" x="335" y="3" width="40" height="37"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Button" image="camera.png"/>
                                             <connections>
