@@ -32,7 +32,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         let backgroundView = UIImageView(frame: UIScreen.main.bounds)
-        backgroundView.image = UIImage(named: "backgroundMain.jpg")
+        backgroundView.image = UIImage(named: "after_noon.png")
         backgroundView.contentMode = UIView.ContentMode.scaleAspectFill
         self.view.insertSubview(backgroundView, at: 0)
         let userDefaults = UserDefaults.standard
@@ -72,6 +72,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func getPosition(){
         manager.requestWhenInUseAuthorization()
+        
         let authorisation = CLLocationManager.authorizationStatus()
         if authorisation != .authorizedWhenInUse && authorisation != .authorizedAlways{
             print("unAuthorized")
