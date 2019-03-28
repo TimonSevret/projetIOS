@@ -70,7 +70,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         print("err: \(error)")
     }
     
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        let authorisation = CLLocationManager.authorizationStatus()
+        if authorisation != .authorizedWhenInUse && authorisation != .authorizedAlways{
+            print("unAuthorized")
+            return
+        }
+        getPosition()
+    }
+    
     func getPosition(){
+        manager.delegate = self
         manager.requestWhenInUseAuthorization()
         
         let authorisation = CLLocationManager.authorizationStatus()
@@ -80,7 +90,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
         manager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         manager.distanceFilter = 100
-        manager.delegate = self
         
         manager.requestLocation()
     }
